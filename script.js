@@ -23,13 +23,6 @@ function nextPage(pageNumber) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Handle slider starting/stopping
-    if (pageNumber === 2) {
-        startSlider();
-    } else {
-        stopSlider();
-    }
-
     // Trigger specific behavior based on page
     if (pageNumber === 1) {
         resetGift();
@@ -55,33 +48,6 @@ function toggleMusic() {
     isMusicPlaying = !isMusicPlaying;
 }
 
-// Slider Logic
-let slideIndex = 0;
-let slideInterval;
-
-function showSlides() {
-    const slides = document.querySelectorAll('.slide');
-    if (slides.length === 0) return;
-
-    slides.forEach(slide => slide.classList.remove('active'));
-
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
-
-    slides[slideIndex - 1].classList.add('active');
-}
-
-function startSlider() {
-    stopSlider();
-    slideIndex = 0;
-    showSlides();
-    slideInterval = setInterval(showSlides, 4000);
-}
-
-function stopSlider() {
-    clearInterval(slideInterval);
-}
-
 // Floating Elements (Cute Edition)
 function createFloatingElement() {
     const container = document.getElementById('floating-elements');
@@ -100,7 +66,7 @@ function createFloatingElement() {
 
     setTimeout(() => {
         element.remove();
-    }, 5000); // User requested 5s life for elements
+    }, 5000);
 }
 
 setInterval(createFloatingElement, 700);
