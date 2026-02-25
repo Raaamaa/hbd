@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Aullia ❤️</title>
+    <meta name="description" content="Kado spesial untuk ulang tahun Aullia Radhautul Jannah yang ke-22.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Entry Overlay -->
+    <div id="entry-overlay" class="entry-overlay">
+        <div class="entry-content glass-card">
+            <h1 class="title" style="font-size: 2.5rem;">Kado untuk Aullia</h1>
+            <p style="margin-bottom: 2rem;">Klik untuk membuka kejutan spesialnya...</p>
+            <button class="nav-btn" onclick="startExperience()">Buka Sekarang ✨</button>
+        </div>
+    </div>
+
+    <!-- Page 1: Greeting -->
+    <section id="page-1" class="page active">
+        <header>
+            <h1 class="title">Happy Birthday!</h1>
+            <p class="subtitle">Aullia Radhautul Jannah</p>
+        </header>
+        <main>
+            <div class="hero-section" style="text-align: center;">
+                <div class="age-number">22</div>
+                <p style="margin-top: 1rem; font-size: 1.2rem; opacity: 0.8;">28 Februari 2026</p>
+                <div class="gift-section">
+                    <h2 style="margin-bottom: 2rem; font-weight: 400;">Buka kadomu di sini...</h2>
+                    <div class="gift-box-container" id="gift-container">
+                        <div class="gift-box" id="gift-box">
+                            <div class="gift-lid"></div>
+                        </div>
+                        <div class="surprise-message" id="surprise-message">
+                            I Love You, Aullia! ❤️
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="nav-container">
+            <button class="nav-btn" onclick="nextPage(2)">Lihat Kenangan Kita →</button>
+        </div>
+    </section>
+
+    <!-- Page 2: Memories -->
+    <section id="page-2" class="page">
+        <header>
+            <h1 class="title" style="font-size: 3rem;">Momen Terbaik</h1>
+        </header>
+        <main style="width: 100%;">
+            <div class="masonry-gallery">
+                <div class="photo-item glass-card">
+                    <img src="Foto/Senyum.JPG" alt="Senyum Aullia">
+                    <p class="gallery-caption">Senyum favoritku</p>
+                </div>
+                <div class="photo-item glass-card">
+                    <img src="Foto/Bersinar.jpeg" alt="Aullia Bersinar">
+                    <p class="gallery-caption">Bersinar selamanya</p>
+                </div>
+                <div class="photo-item glass-card">
+                    <img src="Foto/Petualangan.jpeg" alt="Petualangan Bersama">
+                    <p class="gallery-caption">Petualangan kita</p>
+                </div>
+                <div class="photo-item glass-card">
+                    <img src="Foto/Termanis.jpeg" alt="Momen Termanis">
+                    <p class="gallery-caption">Momen termanis</p>
+                </div>
+                <div class="photo-item glass-card">
+                    <img src="Foto/Terindah.jpeg" alt="Ulang Tahun Terindah">
+                    <p class="gallery-caption">Ulang tahun terindah</p>
+                </div>
+                <div class="photo-item glass-card">
+                    <img src="Foto/Selalu.jpeg" alt="Selalu Bersama">
+                    <p class="gallery-caption">Selalu bersama</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 3rem; font-style: italic; opacity: 0.6; font-size: 1.1rem;">
+                "Setiap detik bersamamu adalah kado terindah."</p>
+        </main>
+        <div class="nav-container">
+            <button class="nav-btn" onclick="nextPage(3)">Ada satu hal lagi... →</button>
+        </div>
+    </section>
+
+    <!-- Page 3: Sincere Message -->
+    <section id="page-3" class="page">
+        <header>
+            <h1 class="title" style="font-size: 3rem;">Untuk Aullia...</h1>
+        </header>
+        <main class="sincere-content">
+            <div class="message-card glass-card">
+                <p>Sayang, di hari spesialmu yang ke-22 ini...</p>
+                <p>Aku ingin meminta maaf jika saat ini aku belum bisa memberikan barang-barang mewah atau kado yang
+                    mahal untukmu.</p>
+                <p>Tapi ketahuilah, setiap baris kode di website ini dibuat dengan <strong>ketulusan</strong> dan rasa
+                    sayang yang sangat besar.</p>
+                <p>Terima kasih sudah selalu ada di sampingku. Aku berjanji akan terus berjuang untuk kebahagiaan kita.
+                </p>
+                <div style="font-size: 3rem; margin-top: 2rem; animation: pulse 2s infinite;">💝</div>
+            </div>
+        </main>
+        <div class="nav-container">
+            <button class="nav-btn" onclick="nextPage(1)">Mulai dari Awal ↺</button>
+        </div>
+    </section>
+
+    <footer>
+        Dibuat dengan ❤️ untuk Aullia
+    </footer>
+
+    <!-- Floating elements container -->
+    <div id="floating-elements"></div>
+
+    <!-- Canvas for confetti -->
+    <canvas id="confetti-canvas"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100;"></canvas>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="Foto/yung kai - blue (official music video) - yung kai.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Toggle Button -->
+    <div id="music-control" class="music-control glass-card" onclick="toggleMusic()">
+        <span id="music-icon">🎵</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
