@@ -238,15 +238,16 @@ header {
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* Masonry Gallery Section 2.0 */
+/* Masonry Gallery Section 2.0 - Identical Layout Restoration */
 .masonry-gallery {
     column-count: 2;
-    /* Still fixed at 2 for consistent look */
+    /* Locked at 2 for an identical experience across all devices */
     column-gap: 20px;
     width: 100%;
-    max-width: 900px;
+    max-width: 850px;
+    /* Narrower for better balance with 2 columns on desktop */
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
 }
 
 .photo-item {
@@ -265,7 +266,7 @@ header {
     transform-origin: center;
 }
 
-/* Height Variations for a Dynamic Feel */
+/* Height Variations */
 .card-short {
     min-height: 250px;
 }
@@ -288,7 +289,6 @@ header {
 
 .photo-item:hover {
     transform: translateY(-15px) scale(1.02) rotate(1deg);
-    /* Added subtle tilt */
     box-shadow: 0 30px 60px var(--glow);
     background: rgba(255, 255, 255, 0.75);
     z-index: 10;
@@ -300,21 +300,15 @@ header {
 
 .photo-item:hover img {
     transform: scale(1.04);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-caption {
     margin-top: 15px;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     color: var(--accent);
     font-family: 'Dancing Script', cursive;
     text-align: center;
     opacity: 0.85;
-    transition: opacity 0.3s ease;
-}
-
-.photo-item:hover .gallery-caption {
-    opacity: 1;
 }
 
 /* Consistent Layout Overrides */
@@ -325,13 +319,20 @@ header {
     }
 
     .photo-item {
-        margin-bottom: 20px;
-        padding: 8px;
-        border-radius: 25px;
+        margin-bottom: 25px;
+        padding: 10px;
+        border-radius: 30px;
     }
 
     .gallery-caption {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+    }
+
+    .card-short,
+    .card-med,
+    .card-tall {
+        min-height: auto;
+        /* Reset for mobile */
     }
 }
 
